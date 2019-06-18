@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    DESC
 
-  s.homepage     = "https://github.com/gm821/ModuleB.git"
+  s.homepage     = "https://github.com/gm821/ModuleB"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -92,6 +92,15 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
+
+  s.subspec 'Controller' do |ss|
+    ss.source_files = "ModuleB/Controller/**/*.{h,m}"
+  end
+
+  s.subspec 'Target' do |ss|
+    ss.source_files = "ModuleB/Target/**/*.{h,m}"
+    ss.dependency "ModuleB/Controller"
+  end
 
   # s.public_header_files = "Classes/**/*.h"
 
